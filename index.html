@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="script.js">
+  <title>Mini Interpréteur</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #33ff33;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+    }
+    #terminal {
+      width: 90%;
+      max-width: 800px;
+      background-color: #111;
+      padding: 0;
+      border: 2px solid #33ff33;
+      box-shadow: 0 0 15px #00ff00;
+      display: flex;
+      flex-direction: column;
+      height: 90vh;
+    }
+    #pinned-info {
+      background-color: #111;
+      color: #33ff33;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      padding: 10px 15px;
+      border-bottom: 1px solid #33ff33;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      max-height: 100px;
+      overflow-y: auto;
+      user-select: none;
+    }
+    #output {
+      white-space: pre-wrap;
+      margin: 10px 15px;
+      flex: 1;
+      overflow-y: auto;
+    }
+    #command-form {
+      display: flex;
+      align-items: center;
+      padding: 0 15px 15px 15px;
+      border-top: 1px solid #33ff33;
+    }
+    .prompt {
+      margin-right: 10px;
+      color: #33ff33;
+      user-select: none;
+    }
+    #command-input {
+      background: transparent;
+      border: none;
+      color: #33ff33;
+      flex: 1;
+      font-size: 1em;
+      outline: none;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .red { color: red; }
+    .green { color: #33ff33; }
+    .blue { color: #3399ff; }
+    .yellow { color: #ffff66; }
+    .cyan { color: cyan; }
+  </style>
+</head>
+<body>
+  <div id="terminal">
+    <div id="pinned-info">
+      Tape <span class="yellow">&lt;nombre&gt; to hex</span> pour convertir un nombre en hexadécimal<br />
+      Tape <span class="cyan">rgbtograyscale</span> pour convertir une couleur RGB en gris<br />
+      Tape <span class="red">rgbtohex</span> pour convertir RGB en code hexadécimal<br />
+      Tape <span class="blue">hextorgb</span> pour convertir un code hexadécimal en RGB<br />
+      Tape <span class="green">exit</span> pour quitter<br />
+      Tape <span class="red">cancel</span> pour annuler la commande en cours
+    </div>
+    <div id="output"></div>
+    <form id="command-form">
+      <span class="prompt">&gt;&gt;&gt;</span>
+      <input type="text" id="command-input" autocomplete="off" autofocus />
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
